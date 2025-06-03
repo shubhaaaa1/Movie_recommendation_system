@@ -24,7 +24,7 @@ st.sidebar.markdown(
 # --- Load Data ---
 @st.cache_data
 def load_data():
-    df = pd.read_csv("C:/Users/shubh/Downloads/movies.csv")
+    df = pd.read_csv("movies.csv")
     for feature in ['genres', 'keywords', 'tagline', 'cast', 'director']:
         df[feature] = df[feature].fillna('')
     df['combined_features'] = df['genres'] + ' ' + df['keywords'] + ' ' + df['tagline'] + ' ' + df['cast'] + ' ' + df['director']
