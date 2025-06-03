@@ -22,7 +22,7 @@ st.sidebar.markdown(
 )
 
 # --- Load Data ---
-@st.cache_data
+
 def load_data():
     df = pd.read_csv("movies.csv")
     for feature in ['genres', 'keywords', 'tagline', 'cast', 'director']:
@@ -32,7 +32,6 @@ def load_data():
 
 movies_data = load_data()
 
-@st.cache_resource
 def compute_similarity(data):
     vectorizer = TfidfVectorizer()
     feature_vectors = vectorizer.fit_transform(data['combined_features'])
